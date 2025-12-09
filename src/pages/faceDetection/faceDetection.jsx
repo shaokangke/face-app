@@ -11,18 +11,31 @@ const FaceDetectionComponent = () => {
 
   const detectFaces = async () => {
     // 加载模型
-    await faceapi.nets.faceRecognitionNet.loadFromUri('https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights');
-    await faceapi.nets.faceLandmark68Net.loadFromUri('https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights');
-    await faceapi.nets.faceLandmark68TinyNet.loadFromUri('https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights');
-    await faceapi.nets.ssdMobilenetv1.loadFromUri('https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights');
-    await faceapi.nets.tinyFaceDetector.loadFromUri('https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights');
+    await faceapi.nets.faceRecognitionNet.loadFromUri(
+      'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights'
+    );
+    await faceapi.nets.faceLandmark68Net.loadFromUri(
+      'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights'
+    );
+    await faceapi.nets.faceLandmark68TinyNet.loadFromUri(
+      'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights'
+    );
+    await faceapi.nets.ssdMobilenetv1.loadFromUri(
+      'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights'
+    );
+    await faceapi.nets.tinyFaceDetector.loadFromUri(
+      'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights'
+    );
     // await faceapi.nets.mtcnn.loadFromUri('https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights');
 
     // 获取图像元素
     const img = imageRef.current;
 
     // 进行人脸检测
-    const detections = await faceapi.detectAllFaces(img).withFaceLandmarks().withFaceDescriptors();
+    const detections = await faceapi
+      .detectAllFaces(img)
+      .withFaceLandmarks()
+      .withFaceDescriptors();
 
     // 创建画布
     const canvas = faceapi.createCanvasFromMedia(img);
@@ -36,10 +49,10 @@ const FaceDetectionComponent = () => {
     // 绘制红色框
     const drawCustomDetections = (canvas, detections) => {
       const context = canvas.getContext('2d');
-      const boxColor = 'red';
+      const boxColor = 'yellow';
       const lineWidth = 2;
-  
-      detections.forEach(detection => {
+
+      detections.forEach((detection) => {
         const box = detection.detection.box;
         context.strokeStyle = boxColor;
         context.lineWidth = lineWidth;
@@ -58,7 +71,7 @@ const FaceDetectionComponent = () => {
   return (
     <div>
       <h1>人脸标记Demo</h1>
-      <img ref={imageRef} src={pic} alt="Your Image" />
+      <img ref={imageRef} src={pic} alt="" />
     </div>
   );
 };
