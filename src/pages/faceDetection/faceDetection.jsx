@@ -12,19 +12,19 @@ const FaceDetectionComponent = () => {
   const detectFaces = async () => {
     // 加载模型
     await faceapi.nets.faceRecognitionNet.loadFromUri(
-      'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights'
+      'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights',
     );
     await faceapi.nets.faceLandmark68Net.loadFromUri(
-      'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights'
+      'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights',
     );
     await faceapi.nets.faceLandmark68TinyNet.loadFromUri(
-      'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights'
+      'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights',
     );
     await faceapi.nets.ssdMobilenetv1.loadFromUri(
-      'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights'
+      'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights',
     );
     await faceapi.nets.tinyFaceDetector.loadFromUri(
-      'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights'
+      'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights',
     );
     // await faceapi.nets.mtcnn.loadFromUri('https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights');
 
@@ -72,6 +72,8 @@ const FaceDetectionComponent = () => {
     <div>
       <h1>人脸标记Demo</h1>
       <img ref={imageRef} src={pic} alt="" />
+      <div>2026</div>
+      <div>2026</div>
     </div>
   );
 };
