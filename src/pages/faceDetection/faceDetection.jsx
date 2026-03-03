@@ -73,7 +73,8 @@ const FaceDetectionComponent = () => {
       <h1>人脸标记Demo</h1>
       <img ref={imageRef} src={pic} alt="Your Image" />
       <div>哈哈</div>
-      <div>11122344</div>
+      <div>快看看</div>
+      <div>发发发</div>
     </div>
   );
 };
